@@ -6,3 +6,7 @@ Final Project
 
 ### Created By:
 - Emily Lai
+- Natasha Naorem
+- Alina Mathew
+- Jonathan Hua
+
