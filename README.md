@@ -10,6 +10,7 @@ Final Project
 - Alina Mathew
 - Jonathan Hua
 
+### Installation and Execution Instructions
 Note: Please use Python 3.7.0 or lower.
 
 1. In a Command Prompt, navigate to the project folder (virtual environment ‘db37’) and run
