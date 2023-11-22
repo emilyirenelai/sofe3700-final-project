@@ -1,0 +1,20 @@
+body{
+    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
+.section1{
+    height: 30vw;
+}
+
+.section2{
+    height: 20vw;
+}
+
+.downarrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 30px;
+    transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  }
