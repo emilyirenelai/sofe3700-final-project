@@ -1,42 +1,52 @@
 import mysql.connector
 
-class User():
-    def __init__(self, userid, Pass, fname, lname, email, dob, pronouns):
-        self.userid = userid
-        self.Pass = Pass
-        self.fname = fname
-        self.lname = lname
-        self.
-
-
-class Journal():
-    def __init__(self, jid, eid, jname, content):
-        self.jid = jid
-        self.eid = eid
-        self.jname = jname
-        self.content = content
-
-class Emotion():
-    def __init__(self, emotionid, emotion, emoji):
-        self.emotionid = emotionid
-        self.emotion = emotion
-        self.emoji = emoji
-
 class Advice():
-    def __init__(self, aid, eid, aname, link, alt):
+    def __init__(self, aid: int, eid: int, aname: str, link: str, alt: str):
         self.aid = aid
         self.eid = eid
         self.aname = aname
         self.link = link
         self.alt = alt
 
+class Emotion():
+    def __init__(self, emotionid: int, emotion: str, emoji: str):
+        self.emotionid = emotionid
+        self.emotion = emotion
+        self.emoji = emoji
+
+
 class Exercise():
-    def __init__(self, exid, eid, exname, link, alt):
+    def __init__(self, exid: int, eid: int, exname: str, link: str, alt: str):
         self.exid = exid
         self.eid = eid
         self.exname = exname
         self.link = link
         self.alt = alt
+
+class Journal():
+    def __init__(self, jid: int, eid: int, jname: str, content: str):
+        self.jid = jid
+        self.eid = eid
+        self.jname = jname
+        self.content = content
+
+class Music():
+    def __init__(self, mid: int, eid: int, mname: str, link: str, alt: str):
+        self.mid = mid
+        self.eid = eid
+        self.mname = mname
+        self.link = link
+        self.alt = alt
+
+class User():
+    def __init__(self, userid: int, Pass: str, fname: str, lname: str, email: str, dob: str, pronouns: str):
+        self.userid = userid
+        self.Pass = Pass
+        self.fname = fname
+        self.lname = lname
+        self.email = email
+        self.dob = dob
+        self.pronouns = pronouns
 
 class Database():
     def __init__(self):
@@ -48,7 +58,47 @@ class Database():
             database="MindNBody"
         )
 
-    def get_emotions(self):
+    # =============================
+    # Advices functions
+    # =============================
+
+    def get_all_advices(self):
+        query = "SELECT * FROM Advices;"
+        cursor = self.db.cursor()
+        cursor.execute(query)
+
+        advices = []
+
+        result = cursor.fetchall()
+
+        for a in result:
+            advice = Advice(int(a[0]), int(a[1]), a[2], a[3], a[4])
+            advices.append(advice)
+
+        return advices
+
+    # Get the list of advices given a particular eid
+    def get_advices(self, eid: int):
+
+        query = "SELECT * FROM Advices WHERE eid = " + str(eid) + ";"
+        cursor = self.db.cursor()
+        cursor.execute(query)
+
+        advices = []
+
+        result = cursor.fetchall()
+
+        for a in result:
+            advice = Advice(int(a[0]), int(a[1]), a[2], a[3], a[4])
+            advices.append(advice)
+
+        return advices
+
+    # =============================
+    # Emotions functions
+    # =============================
+
+    def get_all_emotions(self):
         query = "SELECT * FROM Emotions;"
 
         cursor = self.db.cursor()
@@ -65,18 +115,57 @@ class Database():
         return emotions
 
     def get_emotion_emotion(self, eid: int):
-        emotions = self.get_emotions()
+        emotions = self.get_all_emotions()
         for emotion in emotions:
             if emotion.emotionid == eid:
                 return emotion.emotion
         return None
     
     def get_emotion_emoji(self, eid: int):
-        emotions = self.get_emotions()
+        emotions = self.get_all_emotions()
         for emotion in emotions:
             if emotion.emotionid == eid:
                 return emotion.emoji
         return None
+
+    # =============================
+    # Exercises functions
+    # =============================
+
+    # Get the list of exercises given a particular eid
+    def get_exercises(self, eid: int):
+        query = "SELECT * FROM Exercises WHERE eid = " + str(eid) + ";"
+        cursor = self.db.cursor()
+        cursor.execute(query)
+
+        exercises = []
+
+        result = cursor.fetchall()
+
+        for exer in result:
+            exercise = Exercise(int(exer[0]), int(exer[1]), exer[2], exer[3], exer[4])
+            exercises.append(exercise)
+
+        return exercises
+    
+    def get_all_exercises(self):
+        query = "SELECT * FROM Exercises;"
+        cursor = self.db.cursor()
+        cursor.execute(query)
+
+        exercises = []
+
+        result = cursor.fetchall()
+
+        for exer in result:
+            exercise = Exercise(int(exer[0]), int(exer[1]), exer[2], exer[3], exer[4])
+            exercises.append(exercise)
+
+        return exercises
+
+    # =============================
+    # Journal functions
+    # =============================
 
     def insert_raw_journal(self, eid: int, jname: str, content: str) -> int:
         cursor = self.db.cursor()
@@ -108,39 +197,6 @@ class Database():
             jt = result[0]
             return Journal(int(jt[0]), int(jt[1]), jt[2], jt[3])
         return None
-    
-    # Get the list of advices given a particular eid
-    def get_advices(self, eid: int):
-
-        query = "SELECT * FROM Advices WHERE eid = " + str(eid) + ";"
-        cursor = self.db.cursor()
-        cursor.execute(query)
-
-        advices = []
-
-        result = cursor.fetchall()
-
-        for a in result:
-            advice = Advice(int(a[0]), int(a[1]), a[2], a[3], a[4])
-            advices.append(advice)
-
-        return advices
-
-    # Get the list of exercises given a particular eid
-    def get_exercises(self, eid: int):
-        query = "SELECT * FROM Exercises WHERE eid = " + str(eid) + ";"
-        cursor = self.db.cursor()
-        cursor.execute(query)
-
-        exercises = []
-
-        result = cursor.fetchall()
-
-        for exer in result:
-            exercise = Exercise(int(exer[0]), int(exer[1]), exer[2], exer[3], exer[4])
-            exercises.append(exercise)
-
-        return exercises
 
     # Get a list of journal ids ([1, 2, 3,..]) given a userid (e.g. 3)
     def get_all_journal_ids(self, userid: int):
@@ -156,8 +212,77 @@ class Database():
             journal_ids.append(a[0])
 
         return journal_ids
+
+    # =============================
+    # Music functions
+    # =============================
     
+    def get_music(self, eid: int):
+        query = "SELECT * FROM Music WHERE eid=" + str(eid) + ";"
+        cursor = self.db.cursor()
+        cursor.execute(query)
+
+        result = cursor.fetchall()
+
+        musics = []
+
+        for a in result:
+            music = Music(int(a[0]), int(a[1]), a[2], a[3], a[4])
+            musics.append(music)
+
+        return musics
+
+    def get_all_music(self):
+        query = "SELECT * FROM Music;"
+        cursor = self.db.cursor()
+        cursor.execute(query)
+
+        result = cursor.fetchall()
+        
+        musics = []
+
+        for a in result:
+            music = Music(int(a[0]), int(a[1]), a[2], a[3], a[4])
+            musics.append(music)
+        return musics
+    
+    # =====
+    # Users functions
+    # =====
+
     def get_all_users(self):
+        query = "SELECT * FROM Users;"
+        cursor = self.db.cursor()
+        cursor.execute(query)
+
+        users = []
+
+        result = cursor.fetchall()
+        for x in result:
+            user = User(int(x[0]), x[1], x[2], x[3], x[4], x[5], x[6])
+            users.append(user)
+        
+        return users
+
+    def get_user_by_id(self, userid: int):
+        query = "SELECT * FROM Users WHERE userid=" + str(userid) + ";"
+        cursor= self.db.cursor()
+        cursor.execute(query)
+
+        result = cursor.fetchall()
+        if(len(result) == 1):
+            x = result[0]
+            return User(int(x[0]), x[1], x[2], x[3], x[4], x[5], x[6])
+        return None
+    
+    def insert_user(self, Pass, fname, lname, email, dob, pronouns):
+        query = "INSERT INTO Users (pass, fname, lname, email, dob, pronouns) VALUES (\"%s\", \"%s\", \"%s\", \"%s\", \"%s\", \"%s\");" %(Pass, fname, lname, email, dob, pronouns)
+
+        cursor = self.db.cursor()
+        cursor.execute(query)
+        self.db.commit()
+        
+        return (cursor.lastrowid) # returns userid (auto incremented)
 
 
     
@@ -167,7 +292,7 @@ if __name__ == '__main__':
 
     # Example 1 : Getting emotions from database
     print("\n\nExample 1\n\n")
-    emotions = database.get_emotions()
+    emotions = database.get_all_emotions()
     for e in emotions:
         mystr = "(" + str(e.emotionid) + ", " + str(e.emotion) + ", " + str(e.emoji) + ")"
         print(mystr)
@@ -211,6 +336,46 @@ if __name__ == '__main__':
     print(str(journal_ids))
 
     # Example 6: Get Journal by id == 1
+    print("\n\nExample 6\n\n")
     jid = 1
     journal = database.get_journal_by_id(jid)
     print("Journal: (%s, %s, %s, %s)" %(str(journal.jid), str(journal.eid), journal.jname, journal.content))
+
+    # Example 7 : Insert a new user
+    print("\n\nExample 7\n\n")
+    Pass = "123"
+    fname = "Jem"
+    lname = "Tom"
+    email = "jem.tom@ontariotechu.net"
+    dob = "2002/06/23"
+    pronouns = "M" 
+    userid = database.insert_user(Pass, fname, lname, email, dob, pronouns)
+    print("Inserted (%s, %s, %s, %s, %s, %s, %s, %s)" %(str(userid), Pass, fname, lname, email, dob, pronouns, userid))
+
+    # Example 8: Get user by id
+    print("\n\nExample 8\n\n")
+    userid = 1
+    user = database.get_user_by_id(userid)
+    print("Got User (%s, %s, %s, %s, %s, %s, %s)" %(str(user.userid), user.Pass, user.fname, user.lname, user.email, user.dob, user.pronouns))
+
+    # Example 9: Get music by eid
+    print("\n\nExample 9\n\n")
+    eid = 2
+    musics = database.get_music(eid)
+    print("Got Musics: [")
+    for music in musics:
+        to_print = "Music (%s, %s, %s, %s, %s)" %(str(music.mid), str(music.eid), music.mname, music.link, music.alt)
+        print("\t%s" %to_print)
+    print("]\n")
+
+    # Example 10 : Get all music
+    print("\n\nExample 10\n\n")
+    musics = database.get_all_music()
+    print("Got Musics: [")
+    for music in musics:
+        to_print = "Music (%s, %s, %s, %s, %s)" %(str(music.mid), str(music.eid), music.mname, music.link, music.alt)
+        print("\t%s" %to_print)
+    print("]\n")
+
+
+    
