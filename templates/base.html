@@ -10,13 +10,19 @@
     <title>Journal App</title>
 
       {% block stylesheet %}
-      <style></style>
+      <style>
+        .navstyle{
+    background-color: rgb(41, 92, 175);
+    color: white;
+    border: 1px grey;
+}
+      </style>
       {% endblock %}
   </head>
   <body>
     {% block shownav%}
     <!--NavBar-->
-    <div class="container-fluid p-3 bg-dark navstyle">
+    <div class="container-fluid p-3 navstyle">
       <ul class="nav nav-pills justify-content-end p-2">
           <li class="nav-item">
             <a class="nav-link text-white" href="{{ url_for('index') }}">Home</a>
