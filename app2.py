@@ -27,7 +27,7 @@ def login():
         # put user id into cookie
         if(user == None):
             return render_template('login.html', form=loginForm)
-        resp = make_response(redirect(url_for('index')))
+        resp = make_response(redirect(url_for('add_entry')))
         resp.set_cookie('userid', str(user.userid))
         return resp
     
