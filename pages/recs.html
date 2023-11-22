@@ -8,6 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="write.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Dancing+Script&display=swap" rel="stylesheet">
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -21,7 +22,7 @@
     <div class="container-fluid p-3 navstyle">
         <ul class="nav nav-pills justify-content-end p-2">
             <li class="nav-item">
-              <a class="nav-link text-white" href="write.html">Write a Journal</a>
+              <a class="nav-link active text-white" href="#">Write a Journal</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="journals.html">My Journals</a>
@@ -33,43 +34,25 @@
     </div>
 
     <div class="container-fluid text-center pt-5">
-        <div class="container border entrystyle">
+        <div>
             <!--decor-->
-            <h1>Journal Title</h1>
-            <p class="entry">This would be the journal entry
-                emjken
-                enjan
-                fndja
-            </p>
+            <h4>Reflection Time</h4>
         </div>
     </div>
 
-    <br><br><br>
+    <div class="container-lg text-center pt-3">
+        <form class="justify-content-center">
+            <div class="row justify-content-md-center">
+                <input class="form-control form-control-lg col-8 text-center mb-2 border-0 section" type="text" placeholder="Enter a Journal Title">
 
-    <div class="container text-center entrystyle pt-2">
-        <h2>Your Generated Suggestions</h2>
-
-        <!--Could make 3 toggle dropdown lists-->
-        <div class="row p-2 justify-content-md-center">
-            <div class="col-md border m-2">
-                <h3>This is for music</h3>
-                <p>List of music links</p>
+                <textarea name="journal" class="border-0 col-8 section" id="entry" rows="10" placeholder="Start journalling..."></textarea>
             </div>
-            <div class="col-md border m-2">
-                <h3>This is for advice</h3>
-                <p>List of advice links</p>
+            <div class="row justify-content-md-center pt-4">
+              <button type="submit" class="btn btn-md mt-4 pl-5 pr-5 pt-2 pb-2 border section"><a href="recs.html">Submit Journal</a></button> 
+              <!--Link to a loading page? or recs.html-->
             </div>
-            <div class="col-md border m-2">
-                <h3>This is for music</h3>
-                <p>List of music links</p>
-            </div>
-        </div>        
+        </form>
     </div>
-
-    <div class="container-fluid text-center pt-5">
-        <div class="container-lg">
-            <a href="journals.html" class="btn btn-primary btn-lg pl-5 pr-5" role="button">View All Journals</a>
-        </div>
-    </div>
-    </body>
+    
+</body>
 </html>
