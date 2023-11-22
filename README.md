@@ -4,7 +4,7 @@ Data Management Systems
 
 Final Project
 
-[Intro Image]: .\MindNBodyApp.jpg
+![Cover Image](/MindnBodyApp.jpg)
 
 ### Created By:
 - Emily Lai
