@@ -1,0 +1,32 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3307,
+            "driver": "MySQL",
+            "name": "Local instance wampmysqld64",
+            "database": "phpmyadmin",
+            "username": "root",
+            "password": ""
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "jeremymark.ca",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "mindnbody",
+            "database": "MindNBody",
+            "username": "jeremy",
+            "password": "jeremy"
+        }
+    ]
+}

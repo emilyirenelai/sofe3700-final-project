@@ -32,16 +32,16 @@
     <div class="container-fluid justify-content-center row p-3">
         <a class="container text-center border p-3 col-8" href="">
             <h5>{{entry.jname}}</h5>
-            <h6>{{entry.emoji}} {{entry.emotion}}</h6>
+            <h6>{{entry.emoji}}</h6>
             <p>{{entry.content}}</p>
             {% for song in entry.music %}
-                <p>Music: {{song.mid}} {{song.mname}} {{song.link}} {{song.alt}}</p>
+                <p>Music: {{song.mname}} {{song.link}} {{song.alt}}</p>
             {% endfor %}
             {% for workout in entry.exercises %}
-                <p>Exercise: {{workout.exid}} {{workout.exname}} {{workout.link}} {{workout.alt}}</p>
+                <p>Exercise: {{workout.exname}} {{workout.link}} {{workout.alt}}</p>
             {% endfor %}
             {% for advice in entry.advices %}
-                <p>Advice: {{advice.aid}} {{advice.aname}} {{advice.link}} {{advice.alt}}</p>
+                <p>Advice: {{advice.aname}} {{advice.link}} {{advice.alt}}</p>
             {% endfor %}
             
         </a>
