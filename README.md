@@ -24,21 +24,7 @@ set FLASK_APP = app.py
 
 2. To reset database data to default, 
 
-- a. Delete ‘migrations’ folder and ‘data.sqlite’ file
-
-- b. In the VSCode Terminal Command Prompt set to the proper virtual environment:
-
-```bash
-flask db init
-```
-```bash
-python insert.py
-```
-```bash
-flask db migrate –m “INSERT OPTIONAL COMMENT HERE”
-```
-```bash
-flask db upgrade
+- run the 'MindNBody.session.sql' file
 ```
 
 3. To run the app, in the VSCode Terminal Command prompt type
