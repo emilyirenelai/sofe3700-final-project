@@ -92,10 +92,10 @@ INSERT INTO Users (pass, fname, lname, email, dob, pronouns) VALUES
 ("jane", "Jane", "Doe", "jane.doe@ontariotechu.net", "1997/01/02", "F");
 
 INSERT INTO Journal (eid, jname, content) VALUES
-(1, "A Happy Day", "I was really happy since I got an A+ today on my Data Management Systems Final Project!"),
-(3, "I'm So Sad", "My boyfriend broke up with me for Wesley :(( Wes is just too much better than me."),
-(4, "Grr!", "Why does my professor have to assign so much homework?!"),
-(6, "Thoughts", "I took a long pause and thought about my future, and wondered if I could actually get a job better than McDonalds.");
+(1, "Nov. 18, 2023: A Happy Day", "I was really happy since I got an A+ today on my Data Management Systems Final Project!"),
+(3, "Nov. 19, 2023: I'm So Sad", "My boyfriend broke up with me for Wesley :(( Wes is just too much better than me."),
+(4, "Nov. 20, 2023: Grr!", "Why does my professor have to assign so much homework?!"),
+(6, "Nov. 21, 2023: Thoughts", "I took a long pause and thought about my future, and wondered if I could actually get a job better than McDonalds.");
 
 INSERT INTO JLibrary (jid, userid) VALUES
 (1, 1),
@@ -133,7 +133,7 @@ INSERT INTO Music(eid, mname, link, alt) VALUES
 (6, "Some ZUTA MAYO Song Slap Bass Cover", "https://www.youtube.com/watch?v=SEbGu6J8scs&pp=ygUTc2xhcCBiYXNzIHp1dGEgbWF5bw%3D%3D", "alt");
 
 INSERT INTO Advices (eid, aname, link, alt) VALUES
-(1, "How to stay positive and retain your happy mindest", "https://www.nhs.uk/mental-health/self-help/tips-and-support/how-to-be-happier/", "alt"),
+(1, "How to stay positive and retain your happy mindset", "https://www.nhs.uk/mental-health/self-help/tips-and-support/how-to-be-happier/", "alt"),
 (1, "Create lasting happiness", "https://www.nhs.uk/mental-health/self-help/tips-and-support/how-to-be-happier/", "alt"),
 (2, "It's okay to be super happy from time to time, but don't get used to it because we all die one day", "https://www.healthline.com/health/why-am-i-so-emotional-2", "alt"),
 (3, "Sadness is good, because you are getting used to what most of life will feel like", "https://www.gundersenhealth.org/health-wellness/live-happy/healthy-ways-to-deal-with-sadness", "alt"),

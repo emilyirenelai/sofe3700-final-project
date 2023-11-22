@@ -57,20 +57,22 @@
                 <h3>Music Recommendations</h3>
                 {% for song in entry.music %}
                 <a href= {{song.link}}>Music: {{song.mname}}</a>
-
+                <br>
                 {% endfor %}
             </div>
             <div class="col-md border m-2">
                 <h3>Exercise Recommendations</h3>
                 {% for workout in entry.exercises %}
                 <a href= {{workout.link}}>Exercise: {{workout.exname}}</a>
+                <br>
                 <!-- <p>Exercise: {{workout.exname}} {{workout.link}} {{workout.alt}}</p> -->
                 {% endfor %}
             </div>
             <div class="col-md border m-2">
                 <h3>Advice</h3>
                 {% for advice in entry.advices %}
-                <a href= {{advice.link}}>Music: {{advice.aname}}</a>
+                <a href= {{advice.link}}>Advice: {{advice.aname}}</a>
+                <br>
                 <!-- <p>Advice: {{advice.aname}} {{advice.link}} {{advice.alt}}</p> -->
                 {% endfor %}
             </div>
