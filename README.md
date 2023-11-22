@@ -11,7 +11,6 @@ Final Project
 - Jonathan Hua
 
 ### Installation and Execution Instructions
-Note: Please use Python 3.7.0 or lower.
 
 1. In a Command Prompt, navigate to the project folder (virtual environment ‘db37’) and run
 
@@ -45,14 +44,5 @@ flask db upgrade
 3. To run the app, in the VSCode Terminal Command prompt type
 
 ```bash
-python app.py
+python app2.py
 ```
-
-<!-- TODO:
-
-- Fix “TODO”s in the Python code, including Cohere functionality
-- Get the buttons in the Add and Delete pages to navigate to the List page
-- Incorporate an Admin page to search users by letter in name, etc.
-- Get Delete and Add functions to work
-- Make UI nice
- -->
