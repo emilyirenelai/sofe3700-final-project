@@ -98,10 +98,10 @@ INSERT INTO Journal (eid, jname, content) VALUES
 (6, "Thoughts", "I took a long pause and thought about my future, and wondered if I could actually get a job better than McDonalds.");
 
 INSERT INTO JLibrary (jid, userid) VALUES
-(1, 3),
-(2, 1),
-(3, 10),
-(4, 9);
+(1, 1),
+(2, 3),
+(3, 1),
+(4, 1);
 
 INSERT INTO Exercises (eid, exname, link, alt) VALUES
 (1, "Jump to it with a Jump Rope!", "https://www.youtube.com/watch?v=NfAJB_L3Q0k", "12 Minute Morning Jump Rope Workout"),
@@ -122,6 +122,7 @@ INSERT INTO Music(eid, mname, link, alt) VALUES
 
 INSERT INTO Advices (eid, aname, link, alt) VALUES
 (1, "Happiness doesn't always last forever", "https://www.nhs.uk/mental-health/self-help/tips-and-support/how-to-be-happier/", "alt"),
+(1, "Happiness lasts forever", "https://www.nhs.uk/mental-health/self-help/tips-and-support/how-to-be-happier/", "alt"),
 (2, "It's okay to be super happy from time to time, but don't get used to it because we all die one day", "https://www.healthline.com/health/why-am-i-so-emotional-2", "alt"),
 (3, "Sadness is good, because you are getting used to what most of life will feel like", "https://www.gundersenhealth.org/health-wellness/live-happy/healthy-ways-to-deal-with-sadness", "alt"),
 (4, "How to control your anger", "https://www.nhsinform.scot/healthy-living/mental-wellbeing/anger-management/how-to-control-your-anger/", "alt"),

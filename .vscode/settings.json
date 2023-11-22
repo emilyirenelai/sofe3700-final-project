@@ -23,7 +23,7 @@
             "server": "jeremymark.ca",
             "port": 3306,
             "driver": "MySQL",
-            "name": "MindNBody",
+            "name": "mindnbody",
             "database": "MindNBody",
             "username": "jeremy",
             "password": "jeremy"

@@ -29,6 +29,12 @@ class Journal():
         self.eid = eid
         self.jname = jname
         self.content = content
+        
+    def add_emotion(self, emotion: str):
+        self.emotion = emotion
+        
+    def add_emoji(self, emoji: str):
+        self.emoji = emoji
 
 class Music():
     def __init__(self, mid: int, eid: int, mname: str, link: str, alt: str):
@@ -195,7 +201,10 @@ class Database():
         result = cursor.fetchall()
         if(len(result) == 1):
             jt = result[0]
-            return Journal(int(jt[0]), int(jt[1]), jt[2], jt[3])
+            j = Journal(int(jt[0]), int(jt[1]), jt[2], jt[3])
+            j.add_emotion(self.get_emotion_emotion(j.eid))
+            j.add_emoji(self.get_emotion_emoji(j.eid))
+            return j
         return None
 
     # Get a list of journal ids ([1, 2, 3,..]) given a userid (e.g. 3)
@@ -212,7 +221,6 @@ class Database():
             journal_ids.append(a[0])
 
         return journal_ids
-
     # =============================
     # Music functions
     # =============================
@@ -284,6 +292,20 @@ class Database():
         
         return (cursor.lastrowid) # returns userid (auto incremented)
 
+    def login_user(self, Pass, email):
+        query = 'SELECT * FROM Users WHERE email = "%s" AND pass = "%s";' %(email, Pass)
+        cursor = self.db.cursor()
+        cursor.execute(query)
+        
+        result = cursor.fetchall()
+        print(result)
+        print(result)
+        print(result)
+        print(result)
+        if(len(result) == 1):
+            x = result[0]
+            return User(int(x[0]), x[1], x[2], x[3], x[4], x[5], x[6])
+        return None
 
     
 
