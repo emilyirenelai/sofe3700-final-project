@@ -4,6 +4,8 @@ Data Management Systems
 
 Final Project
 
+[Intro Image]: ./MindNBodyApp.jpg
+
 ### Created By:
 - Emily Lai
 - Natasha Naorem
