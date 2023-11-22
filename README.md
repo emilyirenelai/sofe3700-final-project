@@ -19,7 +19,7 @@ pip install –r requirements.txt
 ```
 
 ```bash
-set FLASK_APP = app.py
+set FLASK_APP = app2.py
 ```
 
 2. To reset database data to default, 
