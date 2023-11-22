@@ -44,7 +44,8 @@ def add_entry():
 #################### TODO: Dynamically assign Jname ##############
 @app.route('/list')
 def list_entries():
-    pass
+    entries = Database().get_all_entries()  # Replace with method to get entries from the database
+    return render_template('list.html', entries=entries)
 
 @app.route('/delete', methods=['GET', 'POST'])
 def del_entry():

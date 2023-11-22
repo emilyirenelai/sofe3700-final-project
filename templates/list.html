@@ -4,9 +4,12 @@
   <h1>Here is a list of your journal entries.</h1>
   <ul>
     {% for entry in all_entries %}
-    <li>{{entry}}</li>
+      <li>
+        <strong>{{ entry.jname }}</strong><br>
+        Content: {{ entry.content }}<br>
+        Emotion: {{ entry.emotion }}<br>
+      </li>
     {% endfor %}
   </ul>
-
 </div>
 {% endblock %}
