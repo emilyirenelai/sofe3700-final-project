@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block content %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="write.css">
+
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <title>MindnBody</title>
+
+    <style>
+      /* Add your custom styles here */
+    .container-lg {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    /* Submit button styles */
+    .submit-btn {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background-color: #0056b3;
+    }
+    </style>
+
+
+  </head>
+  <body>
+    <!--NavBar-->
+    <div class="container-fluid p-3 navstyle">
+        <ul class="nav nav-pills justify-content-end p-2">
+            <li class="nav-item">
+              <a class="nav-link active text-white" href="#">Write a Journal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="journals.html">My Journals</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="profile.html">My Profile</a>
+            </li>
+          </ul>
+    </div>
+
+    <div class="container-fluid text-center pt-5">
+        <div>
+            <!--decor-->
+            <h2>Reflection Time</h2>
+        </div>
+    </div>
+
+    <div class="container-lg text-center pt-3">
+        <form class="justify-content-center" method="POST">
+          {{ form.csrf_token }}
+          <div class="form-group row justify-content-md-center">
+            <!-- Journal Title Input -->
+            <label for="{{ form.jname.id }}">{{ form.jname.label }}</label>
+            {{ form.jname() }}
+          </div>
+      
+          <div class="form-group row justify-content-md-center">
+            <!-- Content Input -->
+            <label for="{{ form.content.id }}">{{ form.content.label }}</label>
+            {{ form.content() }}
+          </div>
+      
+          <div class="row justify-content-md-center pt-4">
+            <!-- Submit Button with Formatting -->
+            <button type="submit" class="submit-btn">{{ form.submit() }}</button>
+            
+            
+              <!--Link to a loading page? or recs.html-->
+            </div>
+        </form>
+    </div>
+    
+</body>
+</html>
+{% endblock %}

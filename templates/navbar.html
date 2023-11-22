@@ -1,6 +1,5 @@
-{% extends "navbar".html" %}
-{% block content %}
-<html lang="en">
+<!doctype html>
+<html lang="en" dir = "ltr">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -8,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="write.css">
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -18,36 +17,20 @@
     <title>MindnBody</title>
   </head>
   <body>
-    <div class="container-fluid text-center pt-5">
-        <div>
-            <!--decor-->
-            <h2>My Journals</h2>
-        </div>
-    </div>
-
-    <!--Add buttons for each emotion-->
-
-    <!--Template how an entry would generate-->
-    {% for entry in all_entries %}
-    <div class="container-fluid justify-content-center row p-3">
-        <a class="container text-center border p-3 col-8" href="">
-            <h5>{{entry.jname}}</h5>
-            <h6>{{entry.emoji}}</h6>
-            <p>{{entry.content}}</p>
-            {% for song in entry.music %}
-                <p>Music: {{song.mname}} {{song.link}} {{song.alt}}</p>
-            {% endfor %}
-            {% for workout in entry.exercises %}
-                <p>Exercise: {{workout.exname}} {{workout.link}} {{workout.alt}}</p>
-            {% endfor %}
-            {% for advice in entry.advices %}
-                <p>Advice: {{advice.aname}} {{advice.link}} {{advice.alt}}</p>
-            {% endfor %}
-            
-        </a>
+    <!--NavBar-->
+    <div class="container-fluid p-3 navstyle">
+        <ul class="nav nav-pills justify-content-end p-2">
+            <li class="nav-item">
+              <a class="nav-link text-white" href="write.html">Write a Journal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="journals.html">My Journals</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="profile.html">My Profile</a>
+            </li>
+          </ul>
     </div>
 
 </body>
-{% endfor %}
 </html>
-{% endblock %}

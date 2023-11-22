@@ -58,7 +58,7 @@ def add_entry():
         # return redirect(url_for('home.html'))  # Redirect to the index page after successful form submission
     else:
         print(form.errors)
-    return render_template('add.html',form=form)
+    return render_template('write_copy.html',form=form)
 
 #################### TODO: Dynamically assign Jname ##############
 @app.route('/list')
@@ -76,7 +76,7 @@ def list_entries():
         j.exercises = Database().get_exercises(eid)
         j.advices = Database().get_advices(eid)
     
-    return render_template('list.html', all_entries = journal_data)
+    return render_template('recs_copy.html', all_entries = journal_data)
 
 @app.route('/delete', methods=['GET', 'POST'])
 def del_entry():

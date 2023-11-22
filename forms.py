@@ -15,3 +15,6 @@ class DelForm(FlaskForm):
 
     id = IntegerField('Id Number of Journal Entry to Remove:')
     submit = SubmitField('Remove')
+
+class WriteForm():
+    jname = StringField('JName: ')
