@@ -1,0 +1,17 @@
+body{
+    background-image: url("bgtrial.jpeg");
+}
+
+.section{
+    background-color: rgb(187, 219, 247);
+}
+
+.navstyle{
+    background-color: rgb(41, 92, 175);
+    color: white;
+    border: 1px grey;
+}
+
+.entrystyle{
+    background-color: aliceblue;
+}

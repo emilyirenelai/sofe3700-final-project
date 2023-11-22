@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="write.css">
 
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -18,16 +19,16 @@
   </head>
   <body>
     <!--NavBar-->
-    <div class="container-fluid p-3 bg-dark">
+    <div class="container-fluid p-3 navstyle">
         <ul class="nav nav-pills justify-content-end p-2">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Write a Journal</a>
+              <a class="nav-link active text-white" href="#">Write a Journal</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="journals.html">My Journals</a>
+              <a class="nav-link text-white" href="journals.html">My Journals</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="profile.html">My Profile</a>
+              <a class="nav-link text-white" href="profile.html">My Profile</a>
             </li>
           </ul>
     </div>
@@ -42,12 +43,12 @@
     <div class="container-lg text-center pt-3">
         <form class="justify-content-center">
             <div class="row justify-content-md-center">
-                <input class="form-control form-control-lg col-8 text-center mb-2 border-0 bg-light" type="text" placeholder="Enter a Journal Title">
+                <input class="form-control form-control-lg col-8 text-center mb-2 border-0 section" type="text" placeholder="Enter a Journal Title">
 
-                <textarea name="journal" class="border-0 bg-light col-8" id="entry" rows="10" placeholder="Start journalling..."></textarea>
+                <textarea name="journal" class="border-0 col-8 section" id="entry" rows="10" placeholder="Start journalling..."></textarea>
             </div>
             <div class="row justify-content-md-center pt-4">
-              <button type="submit" class="btn btn-md mt-4 pl-5 pr-5 pt-2 pb-2"><a href="recs.html">Submit Journal</a></button> 
+              <button type="submit" class="btn btn-md mt-4 pl-5 pr-5 pt-2 pb-2 border section"><a href="recs.html">Submit Journal</a></button> 
               <!--Link to a loading page? or recs.html-->
             </div>
         </form>
