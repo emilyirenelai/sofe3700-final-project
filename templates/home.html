@@ -1,7 +1,93 @@
 {% extends "base.html" %}
+{% block stylesheet %}
+<style>
+  html{
+    scroll-behavior: smooth;
+}
+body{
+    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+}
+
+#section1{
+    height: 30vw;
+}
+
+#section2{
+    height: 20vw;
+}
+
+#section3{
+    height: 30vw;
+}
+
+.downarrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 30px;
+    transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  }
+</style>
+{% endblock %}
+
+
+{% block shownav %}
+{% endblock %}
+
 {% block content %}
-<div class="jumbotron">
-  <h1>Welcome to our Journal App</h1>
-  <p>Navigate using the navbar.</p>
-</div>
+  <div class="container-fluid text-center pt-5">
+      <div class="pt-5">
+          <!--decor-->
+          <h1>MindnBody</h1>
+          <h5>Enter tagline</h5>
+      </div>
+  </div>
+  <br><br><br>
+  <div class="container-fluid text-center pt-5" id="section1">
+      <!--Add Smooth Scrolling-->
+      <h3>Write a Journal Entry...</h3>
+      <a href="#section1" class="pt-5">
+        <i class="downarrow"></i><br>
+      <i class="downarrow"></i><br>
+      </a>
+      <!--Down arrow-->
+  </div>
+
+  <div class="container-fluid text-center" id="section2">
+      <h3>Evaluate Your Emotions...</h3>
+      <a href="#section2">
+        <i class="downarrow"></i><br>
+      <i class="downarrow"></i><br>
+      </a>
+  </div>
+  <div class="container-fluid text-center">
+      <h3>Generate your MindnBody Tips</h3>
+          <div class="container">
+              <div class="row">
+                <div class="col-md border">
+                  <h3>Music</h3>
+                  <p>Music feature description here</p>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-md border">
+                  <h3>Advice</h3>
+                  <p>Advice feature description here</p>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-md border">
+                  <h3>Fitness</h3>
+                  <p>Advice feature description here</p>
+                </div>
+              </div>
+            </div>
+
+            <br>
+            <div class="container-fluid text-center">
+              <h2>Join MindnBody Now!</h2>
+              <div class="container-lg p-4">
+                  <a href="login" class="btn btn-primary btn-lg pl-5 pr-5" role="button">LOGIN</a>
+              </div>
+          </div>
+  </div>
 {% endblock %}

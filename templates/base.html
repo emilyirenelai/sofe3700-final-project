@@ -8,9 +8,31 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <title>Journal App</title>
+
+      {% block stylesheet %}
+      <style></style>
+      {% endblock %}
   </head>
   <body>
-
+    {% block shownav%}
+    <!--NavBar-->
+    <div class="container-fluid p-3 bg-dark navstyle">
+      <ul class="nav nav-pills justify-content-end p-2">
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{{ url_for('index') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{{ url_for('login') }}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{{ url_for('add_entry') }}">Write a Journal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{{ url_for('list_entries') }}">List of Journal Entries</a>
+          </li>
+        </ul>
+  </div>
+    <!--
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <div class="navbar-nav">
@@ -18,11 +40,11 @@
       <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
       <a class="nav-item nav-link" href="{{ url_for('add_entry') }}">Add Entry</a>
       <a class="nav-item nav-link" href="{{ url_for('list_entries') }}">List of Journal Entries</a>
-      <!-- <a class="nav-item nav-link" href="{{ url_for('del_entry') }}">Delete Entry</a> -->
-
+       <a class="nav-item nav-link" href="{{ url_for('del_entry') }}">Delete Entry</a>
+     
     </div>
-
-</nav>
+    </nav> -->
+{% endblock %}
 
     {% block content %}
 
