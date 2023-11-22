@@ -377,5 +377,34 @@ if __name__ == '__main__':
         print("\t%s" %to_print)
     print("]\n")
 
+    # Example 11 : Get the music from the `hap` emotion
+    print("\n\nExample 11\n\n")
+    emotion = 'hap'
+    emotionid = -1
+    emotions = database.get_all_emotions()
+    for e in emotions:
+        if (e.emotion == emotion):
+            emotionid = e.emotionid
+            break
+    if(emotionid != -1):
+        musics = database.get_music(emotionid)
+        for music in musics:
+            print(str(music))
+
+    # Example 12 : Put a journal using AI
+    print("\n\nExample 12\n\n")
+    userid = 1
+    eid = -1 # to be evaluated by AI
+    jname = "A normal day"
+    content = "Today was a normal day"
+    from cohere_mood_training import get_emotion
+    emotion_name = get_emotion(content)
+    for emotion in  database.get_all_emotions():
+        if (emotion.emotion == emotion_name):
+            eid = emotion.emotionid
+            break
+    if(eid != -1): # we found an eid
+        database.insert_journal(userid, eid, jname, content)
+        print("Inserted (%s, %s, %s, %s) into Journal" %(str(userid), str(eid), jname, content))
 
     

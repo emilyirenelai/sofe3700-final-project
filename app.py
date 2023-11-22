@@ -2,7 +2,6 @@ import os
 import time
 time.clock = time.time
 from flask import Flask, render_template, url_for, redirect
-from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 app = Flask (__name__)
 from forms import AddForm, DelForm
