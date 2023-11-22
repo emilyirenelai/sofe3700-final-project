@@ -27,6 +27,7 @@ requests-oauthlib==0.8.0
 six==1.11.0
 setuptools==39.0.1
 SQLAlchemy==1.2.6
+mysql-connector-python==8.2.0
 SQLAlchemy-Utils==0.33.2
 urllib3==1.22
 URLObject==2.4.3
