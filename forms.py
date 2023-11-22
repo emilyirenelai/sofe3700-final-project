@@ -2,10 +2,14 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, SubmitField
 
 class AddForm(FlaskForm):
-    userid = IntegerField('User ID: ')
     jname = StringField('Journal Name: ')
     content = StringField('Content: ')
     submit = SubmitField('Add')
+    
+class LoginForm(FlaskForm):
+    email = StringField('Email: ')
+    password = StringField('Password: ')
+    submit = SubmitField('Login')
 
 class DelForm(FlaskForm):
 

@@ -1,5 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="jumbotron">
+  <h1>Here is a list of your journal entries.</h1>
+  <ul>
+    <ul>
+      {% for entry in all_entries %}
+        <li>
+          <span class="jid">Journal ID: {{ entry.jid }}</span>
+          <span class="eid">Entry ID: {{ entry.eid }}</span>
+          <span class="jname">Journal Name: {{ entry.jname }}</span>
+          <span class="content">Content: {{ entry.content }}</span>
+        </li>
+        {% endfor %}
+      </ul>
+  </ul>
+
+</div>
+
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -18,6 +36,21 @@
     <title>MindnBody</title>
   </head>
   <body>
+    <!--NavBar-->
+    <div class="container-fluid p-3 bg-dark">
+        <ul class="nav nav-pills justify-content-end p-2">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Write a Journal</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="journals.html">My Journals</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profile.html">My Profile</a>
+            </li>
+          </ul>
+    </div>
+
     <div class="container-fluid text-center pt-5">
         <div>
             <!--decor-->
@@ -28,25 +61,12 @@
     <!--Add buttons for each emotion-->
 
     <!--Template how an entry would generate-->
-    {% for entry in all_entries %}
     <div class="container-fluid justify-content-center row p-3">
         <a class="container text-center border p-3 col-8" href="">
-            <h5>{{entry.jname}}</h5>
-            <h6>{{entry.emoji}} {{entry.emotion}}</h6>
-            <p>{{entry.content}}</p>
-            {% for song in entry.music %}
-                <p>Music: {{song.mid}} {{song.mname}} {{song.link}} {{song.alt}}</p>
-            {% endfor %}
-            {% for workout in entry.exercises %}
-                <p>Exercise: {{workout.exid}} {{workout.exname}} {{workout.link}} {{workout.alt}}</p>
-            {% endfor %}
-            {% for advice in entry.advices %}
-                <p>Advice: {{advice.aid}} {{advice.aname}} {{advice.link}} {{advice.alt}}</p>
-            {% endfor %}
-            
+            <h5>Journal Title</h5>
+            <p>Emotion</p>
         </a>
     </div>
-    {% endfor %}
 
 </body>
 </html>

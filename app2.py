@@ -1,9 +1,10 @@
 import os
 import time
-from flask import Flask, render_template, redirect, url_for
-from forms import AddForm, DelForm
+from flask import Flask, render_template, redirect, url_for, make_response
+from forms import AddForm, DelForm, LoginForm
 from newapp import Database
 from cohere_mood_training import get_emotion
+from flask import request
 
 time.clock = time.time
 app = Flask (__name__)
@@ -15,13 +16,31 @@ app.config['SECRET_KEY'] = 'mysecretkey'
 def index():
     return render_template('home.html')
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    loginForm = LoginForm()
+    
+    if loginForm.validate_on_submit():
+        email = loginForm.email.data
+        password = loginForm.password.data
+        user = Database().login_user(password, email)
+        # put user id into cookie
+        if(user == None):
+            return render_template('login.html', form=loginForm)
+        resp = make_response(redirect(url_for('index')))
+        resp.set_cookie('userid', str(user.userid))
+        return resp
+    
+    return render_template('login.html', form=loginForm)
+
 @app.route('/add', methods=['GET', 'POST'])
 def add_entry():
     form = AddForm()
 
     if form.validate_on_submit():
-        userid = form.userid.data
-        jname = form.jname.data
+        # get userid from cookie
+        userid = request.cookies.get('userid')
+        jname = form.jname.data 
         content = form.content.data
         emotion = get_emotion(content)  # Assuming get_emotion returns the emotion based on content
         print('AI: %s' %emotion)
@@ -44,7 +63,20 @@ def add_entry():
 #################### TODO: Dynamically assign Jname ##############
 @app.route('/list')
 def list_entries():
-    pass
+    # get userid from cookie
+    userid = request.cookies.get('userid')
+    journal_ids = Database().get_all_journal_ids(userid)
+    journal_data = []
+    for jid in journal_ids:
+        journal_data.append(Database().get_journal_by_id(jid))
+    
+    for j in journal_data:
+        eid = j.eid
+        j.music = Database().get_music(eid)
+        j.exercises = Database().get_exercises(eid)
+        j.advices = Database().get_advices(eid)
+    
+    return render_template('list.html', all_entries = journal_data)
 
 @app.route('/delete', methods=['GET', 'POST'])
 def del_entry():

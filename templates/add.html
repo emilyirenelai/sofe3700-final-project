@@ -5,7 +5,6 @@
   <p>Enter your entry below:</p>
   <form method="POST">
     {{ form.csrf_token }}
-    {{ form.userid.label }} {{ form.userid() }}
       {{ form.jname.label }} {{ form.jname() }}
       {{ form.content.label }} {{ form.content() }}
       {{ form.submit() }}
