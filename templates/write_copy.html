@@ -58,6 +58,57 @@
     .submit-btn:hover {
       background-color: #0056b3;
     }
+
+    body{
+    /* position: fixed; */
+    /* left: 0;
+    top: 0;
+    width: 100%; */
+    background-image: url("http://webmadewell.com/wp-content/uploads/2018/01/img-bg-sample-parallax-header.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
+}
+
+.section{
+    background-color: rgb(187, 219, 247);
+}
+
+.navstyle{
+    background-color: rgb(91, 112, 146);
+    color: white;
+    border: 1px grey;
+}
+
+.entrystyle{
+    background-color: aliceblue;
+}
+
+h1 {
+    font-family: 'Paint Brush Script', sans-serif;
+    font-weight: bold;
+    font-size: 500%;
+}
+
+p1{
+    font-size:120%;
+}
+
+h2{
+    font-family: 'Cedarville Cursive', cursive;
+    font-family: 'Dancing Script', cursive;
+    font-size: 200%;
+    font-weight: bold;
+}
+
+h4{
+    font-family: 'Cedarville Cursive', cursive;
+    font-family: 'Dancing Script', cursive;
+    font-size: 400%;
+    font-weight: bold;
+
+}
+
   </style>
 {% endblock %}
 
@@ -92,13 +143,13 @@
     <div class="container-lg text-center pt-3">
         <form class="justify-content-center" method="POST">
           {{ form.csrf_token }}
-          <div class="form-group row justify-content-md-center">
+          <div class="form-group row justify-content-md-center section">
             <!-- Journal Title Input -->
             <label for="{{ form.jname.id }}">{{ form.jname.label }}</label>
             {{ form.jname() }}
           </div>
       
-          <div class="form-group row justify-content-md-center">
+          <div class="form-group row justify-content-md-center section" id="entry">
             <!-- Content Input -->
             <label for="{{ form.content.id }}">{{ form.content.label }}</label>
             {{ form.content() }}
@@ -106,10 +157,11 @@
       
           <div class="row justify-content-md-center pt-4">
             <!-- Submit Button with Formatting -->
-            <button type="submit" class="submit-btn">{{ form.submit() }}</button>
+              {{ form.submit() }}
+            <!--<button type="submit" class="btn">{{ form.submit() }}</button>
             
             
-              <!--Link to a loading page? or recs.html-->
+              Link to a loading page? or recs.html-->
             </div>
         </form>
     </div>

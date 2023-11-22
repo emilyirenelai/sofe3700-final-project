@@ -1,11 +1,30 @@
 {% extends "base.html" %}
 {% block stylesheet %}
 <style>
+
   html{
     scroll-behavior: smooth;
 }
+
+h1 { 
+    font-family:'Dancing Script', cursive;
+    font-weight:bold;
+    font-size: 150px;
+    margin-bottom: 30px;
+    background-image: linear-gradient(to left, rgb(137, 130, 238), rgb(160, 69, 69));  -webkit-background-clip: text;
+    color:transparent;
+}
+
+h5 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 250%;
+}
+
 body{
-    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    background: linear-gradient(141deg, #9AD0C2 0%, #2D9596 55%, #2D9596 75%);
+    background-image: url("http://webmadewell.com/wp-content/uploads/2018/01/img-bg-sample-parallax-header.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
 #section1{
@@ -28,6 +47,11 @@ body{
     transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
   }
+
+  .containers{
+    background-color: rgb(112, 89, 132);
+    color: white;
+  }
 </style>
 {% endblock %}
 
@@ -40,13 +64,13 @@ body{
       <div class="pt-5">
           <!--decor-->
           <h1>MindnBody</h1>
-          <h5>Enter tagline</h5>
-      </div>
+          <h5>Journal your way to a healthy mind & body!</h5>
+        </div>
   </div>
   <br><br><br>
   <div class="container-fluid text-center pt-5" id="section1">
       <!--Add Smooth Scrolling-->
-      <h3>Write a Journal Entry...</h3>
+      <h3> Anxious? Stressed? Dreading your deadlines? We are right there with you!</h3>
       <a href="#section1" class="pt-5">
         <i class="downarrow"></i><br>
       <i class="downarrow"></i><br>
@@ -55,36 +79,36 @@ body{
   </div>
 
   <div class="container-fluid text-center" id="section2">
-      <h3>Evaluate Your Emotions...</h3>
-      <a href="#section2">
+    <h3> Need some tips, playlist suggestions or just an anonymous space to express your thoughts?</h3>
+    <a href="#section2">
         <i class="downarrow"></i><br>
       <i class="downarrow"></i><br>
       </a>
   </div>
   <div class="container-fluid text-center">
-      <h3>Generate your MindnBody Tips</h3>
-          <div class="container">
+    <h3 class="text-white">Guess what? We are here to support your mental & physical journey all together! Take a look at what we have to elevate your vibe!</h3> <br> 
+    <div class="container">
               <div class="row">
-                <div class="col-md border">
+                <div class="col-md border containers">
                   <h3>Music</h3>
-                  <p>Music feature description here</p>
+                  <p>Want to relax after a journal entry? Listen to some Jeremy Zucker. Feeling stressed? Listen to The Weeknd. </p>
                 </div>
                 <div class="col-1"></div>
-                <div class="col-md border">
+                <div class="col-md border containers">
                   <h3>Advice</h3>
-                  <p>Advice feature description here</p>
+                  <p>Don't know how to handle stress? We got you! Our app generates therapist-approved tips and suggestions on how to overcome challenges. </p>
                 </div>
                 <div class="col-1"></div>
-                <div class="col-md border">
+                <div class="col-md border containers">
                   <h3>Fitness</h3>
-                  <p>Advice feature description here</p>
+                  <p>Need some exercise to feel better? Don't fret cuz our app generates exercises depending on your mood! </p>
                 </div>
               </div>
             </div>
 
             <br>
             <div class="container-fluid text-center">
-              <h2>Join MindnBody Now!</h2>
+              <h2 class="text-white">Join MindnBody Now!</h2>
               <div class="container-lg p-4">
                   <a href="login" class="btn btn-primary btn-lg pl-5 pr-5" role="button">LOGIN</a>
               </div>

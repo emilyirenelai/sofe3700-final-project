@@ -3,22 +3,47 @@
 {% block stylesheet %}
 <style>
   body{
-    background-image: url("bgtrial.jpeg");
+    /* position: fixed; */
+    /* left: 0;
+    top: 0;
+    width: 100%; */
+    background-image: url("http://webmadewell.com/wp-content/uploads/2018/01/img-bg-sample-parallax-header.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
 }
-
 .section{
     background-color: rgb(187, 219, 247);
 }
 
 .navstyle{
-    background-color: rgb(41, 92, 175);
+    background-color: rgb(91, 112, 146);
     color: white;
     border: 1px grey;
 }
 
-.entrystyle{
+.jstyle{
     background-color: aliceblue;
 }
+
+h2{ 
+    font-family: 'Paint Brush Script', sans-serif;
+    font-weight: bold;
+    font-size: 500%;
+}
+
+h5{
+    font-family: 'Cedarville Cursive', cursive;
+    font-family: 'Dancing Script', cursive;
+    font-size: 200%;
+}
+
+p1{
+    font-family: 'Cedarville Cursive', cursive;
+    font-family: 'Dancing Script', cursive;
+    font-size: 200%;
+}
+
 </style>
 {% endblock %}
 
@@ -36,7 +61,7 @@
         <a class="nav-link text-white" href="{{ url_for('add_entry') }}">Write a Journal</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="{{ url_for('list_entries') }}">List of Journal Entries</a>
+        <a class="nav-link text-white active" href="{{ url_for('list_entries') }}">List of Journal Entries</a>
       </li>
     </ul>
 </div>
@@ -48,7 +73,7 @@
 
     {% for entry in all_entries %}
     <div class="container-fluid text-center pt-5">
-        <div class="container border entrystyle">
+        <div class="container border entrystyle bg-light">
             <!--decor-->
             <h1>{{entry.jname}}</h1>
             <h6>{{entry.emoji}}</h6>
@@ -60,20 +85,18 @@
 
     <br><br><br>
 
-    <div class="container text-center entrystyle pt-2">
-        <h2>Your Generated Suggestions</h2>
-
+    <div class="container text-center entrystyle pt-2 bg-light">
         <!--Could make 3 toggle dropdown lists-->
         <div class="row p-2 justify-content-md-center">
             <div class="col-md border m-2">
-                <h3>Music Recommendations</h3>
+                <h4>Music Recommendations</h4>
                 {% for song in entry.music %}
                 <a href= {{song.link}}>Music: {{song.mname}}</a>
                 <br>
                 {% endfor %}
             </div>
             <div class="col-md border m-2">
-                <h3>Exercise Recommendations</h3>
+                <h4>Exercise Recommendations</h4>
                 {% for workout in entry.exercises %}
                 <a href= {{workout.link}}>Exercise: {{workout.exname}}</a>
                 <br>
@@ -81,7 +104,7 @@
                 {% endfor %}
             </div>
             <div class="col-md border m-2">
-                <h3>Advice</h3>
+                <h4>Advice</h4>
                 {% for advice in entry.advices %}
                 <a href= {{advice.link}}>Advice: {{advice.aname}}</a>
                 <br>
