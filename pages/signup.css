@@ -1,8 +1,13 @@
 body{
-    background-image: url("bgtrial.jpeg");
+    background-image: url("http://webmadewell.com/wp-content/uploads/2018/01/img-bg-sample-parallax-header.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat; 
 }
 
-.section{
-    height: 100%;
-    background-color: rgb(187, 219, 247);
+h1{
+    font-family: 'Cedarville Cursive', cursive;
+    font-family: 'Dancing Script', cursive;
+    font-size: 500%;
+    font-weight: bold;
 }
