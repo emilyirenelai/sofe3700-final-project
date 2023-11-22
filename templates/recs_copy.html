@@ -22,8 +22,8 @@
     border: 1px grey;
 }
 
-.jstyle{
-    background-color: aliceblue;
+.entrystyle{
+    background-color: rgb(168, 211, 248);
 }
 
 h2{ 
@@ -73,7 +73,7 @@ p1{
 
     {% for entry in all_entries %}
     <div class="container-fluid text-center pt-5">
-        <div class="container border entrystyle bg-light">
+        <div class="container entrystyle border">
             <!--decor-->
             <h1>{{entry.jname}}</h1>
             <h6>{{entry.emoji}}</h6>
@@ -81,21 +81,17 @@ p1{
             
         </div>
     </div>
-    
-
-    <br><br><br>
-
-    <div class="container text-center entrystyle pt-2 bg-light">
+    <div class="container text-center entrystyle border pt-2">
         <!--Could make 3 toggle dropdown lists-->
         <div class="row p-2 justify-content-md-center">
-            <div class="col-md border m-2">
+            <div class="col-md border m-2 rounded shadow-lg">
                 <h4>Music Recommendations</h4>
                 {% for song in entry.music %}
                 <a href= {{song.link}}>Music: {{song.mname}}</a>
                 <br>
                 {% endfor %}
             </div>
-            <div class="col-md border m-2">
+            <div class="col-md border m-2 rounded shadow-lg">
                 <h4>Exercise Recommendations</h4>
                 {% for workout in entry.exercises %}
                 <a href= {{workout.link}}>Exercise: {{workout.exname}}</a>
@@ -103,7 +99,7 @@ p1{
                 <!-- <p>Exercise: {{workout.exname}} {{workout.link}} {{workout.alt}}</p> -->
                 {% endfor %}
             </div>
-            <div class="col-md border m-2">
+            <div class="col-md border m-2 rounded shadow-lg">
                 <h4>Advice</h4>
                 {% for advice in entry.advices %}
                 <a href= {{advice.link}}>Advice: {{advice.aname}}</a>
